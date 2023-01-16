@@ -16,6 +16,7 @@ public class Student {
     @Size(min =2,message ="name must contain minimum 2 letter")
     private String studentName;
     private String studentDepartment;
+<<<<<<< HEAD
     private String role;
 
     public String getRole() {
@@ -25,6 +26,8 @@ public class Student {
     public void setRole(String role) {
         this.role = role;
     }
+=======
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
 
     public long getStudentId() {
         return studentId;
@@ -50,11 +53,18 @@ public class Student {
         this.studentDepartment = studentDepartment;
     }
 
+<<<<<<< HEAD
     public Student(long studentId, String studentName, String studentDepartment, String role) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentDepartment = studentDepartment;
         this.role = role;
+=======
+    public Student(long studentId, String studentName, String studentDepartment) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.studentDepartment = studentDepartment;
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
     }
 
     @Override
@@ -63,7 +73,10 @@ public class Student {
                 "studentId=" + studentId +
                 ", studentName='" + studentName + '\'' +
                 ", studentDepartment='" + studentDepartment + '\'' +
+<<<<<<< HEAD
                 ", role='" + role + '\'' +
+=======
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
                 '}';
     }
 

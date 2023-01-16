@@ -4,6 +4,7 @@ import com.imran.crudoperation.demo.entity.Student;
 import com.imran.crudoperation.demo.service.StudentService;
 import jakarta.validation.Valid;
 
+<<<<<<< HEAD
 import org.slf4j.Logger;
         import org.slf4j.LoggerFactory;
         import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,25 @@ public class StudentController {
     int i;
     @Value("${age}")
     int age;
+=======
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class StudentController {
+
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
     @Autowired
     private StudentService studentService;
     private static final Logger logger= LoggerFactory.getLogger(StudentController.class);
 
     @PostMapping("/student/insert")
+<<<<<<< HEAD
     @ResponseBody
     public ResponseEntity<Student> insertStudent(@Valid @RequestBody Student student){
             studentService.saveStudent(student);
@@ -46,6 +61,17 @@ public class StudentController {
        ModelAndView mv=new ModelAndView("Student");
        mv.addObject("allStudent",allStudent);
         return mv;
+=======
+    public Student insertStudent(@Valid @RequestBody Student student){
+            studentService.saveStudent(student);
+            logger.info(String.valueOf(student));
+        return student;
+    }
+
+    @GetMapping("/student/getAll")
+    public List<Student> getAllStudent(){
+        return studentService.getAllStudent();
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
     }
 
     @GetMapping("/student/{id}")
@@ -53,11 +79,17 @@ public class StudentController {
         return studentService.fetchById(id);
     }
 
+<<<<<<< HEAD
     @GetMapping("/student/delete/{id}")
     @ResponseBody
     public String deleteStudent(@PathVariable long id){
         studentService.deleteStudentById(id);
         return "One record deleted";
+=======
+    @DeleteMapping("/student/delete/{id}")
+    public void deleteStudent(@PathVariable long id){
+        studentService.deleteStudentById(id);
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
     }
 
     @GetMapping("/student/department/{name}")
@@ -70,6 +102,7 @@ public class StudentController {
         return studentService.studentByName(name);
     }
 
+<<<<<<< HEAD
 //    @PutMapping("/student/update/{id}")
 //    public Student updateStudent(@PathVariable long id, @RequestBody Student student){
 //        return studentService.updateStudentById(id,student);
@@ -120,4 +153,11 @@ public class StudentController {
    public String testApi(@RequestParam String whether){
         return whether;
    }
+=======
+    @PutMapping("/student/update/{id}")
+    public Student updateStudent(@PathVariable long id,@Valid @RequestBody Student student){
+        return studentService.updateStudentById(id,student);
+    }
+
+>>>>>>> f8f083f1d10b0bd973d6d94e478e8214ffaed906
 }
