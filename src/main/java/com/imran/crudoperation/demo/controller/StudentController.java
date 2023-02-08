@@ -75,18 +75,18 @@ public class StudentController {
     }
 
 
-//    @GetMapping("/student/delete/{id}")
-//    @ResponseBody
-//    public String deleteStudent(@PathVariable long id) {
-//        studentService.deleteStudentById(id);
-//        return "One record deleted";
-//    }
-
-    @DeleteMapping("/student/delete/{id}")
-    public void deleteStudent(@PathVariable long id) {
+    @GetMapping("/student/delete/{id}")
+    @ResponseBody
+    public String deleteStudent(@PathVariable long id) {
         studentService.deleteStudentById(id);
-
+        return "One record deleted";
     }
+
+//    @DeleteMapping("/student/delete/{id}")
+//    public void deleteStudent(@PathVariable long id) {
+//        studentService.deleteStudentById(id);
+//
+//    }
 
     @GetMapping("/student/department/{name}")
     public List<Student> getStudentByDepartment(@PathVariable(name = "name") String department) {
